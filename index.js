@@ -1,6 +1,6 @@
 // Remember that we are using ropsten for this application. Once completed we may deploy it to the mainnet for public use
 if(typeof web3 != 'undefined'){
-	ethereum.enable();// we must call this in favour of metamask privacy mode //
+	ethereum.enable();
          console.log("web3 detected from Metamask")
          provider = web3.currentProvider
          this.web3 = new Web3(provider)
@@ -62,7 +62,7 @@ function saveSetProfile(name, occupation, bio) {
 function cancelSetProfile() {
     start()
 }
-
+start();
 
 function sendMessage(message) {
     contractInstance.writeMessage(message, (err, result) => {
@@ -70,7 +70,6 @@ function sendMessage(message) {
     })
     initMessages()
 }
-
 
 function initMessages() {
     contractInstance.lastMessageId((err, maxMessages) => {
@@ -88,5 +87,12 @@ function initMessages() {
         }
     })
 }
-    start();
+
+function initDummyProfile() {
+    localStorage.myProfile = JSON.stringify({
+        name: "Anonymous",
+        occupation: "Beep",
+        bio: "I'm just a bot"
+    })
+    initMyProfile()
 }
