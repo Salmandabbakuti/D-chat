@@ -62,7 +62,7 @@ function saveSetProfile(name, occupation, bio) {
 function cancelSetProfile() {
     start()
 }
-start();
+
 
 function sendMessage(message) {
     contractInstance.writeMessage(message, (err, result) => {
@@ -88,12 +88,5 @@ function initMessages() {
         }
     })
 }
-
-function initDummyProfile() {
-    localStorage.myProfile = JSON.stringify({
-        name: "Anonymous",
-        occupation: "Beep",
-        bio: "I'm just a bot"
-    })
-    initMyProfile()
+    start();
 }
