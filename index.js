@@ -105,7 +105,9 @@ if(typeof web3 != 'undefined'){
          console.log("web3 detected from Metamask")
          provider = web3.currentProvider
          this.web3 = new Web3(provider)
-      }else{
+	ethereum.enable(); // in favour of metamask privacy mode,we must call this //
+           }
+      else{
          console.log("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
          provider = new Web3.providers.HttpProvider("http://localhost:8545")
          this.web3 = new Web3(provider)
