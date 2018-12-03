@@ -17,7 +17,6 @@ const contractInstance = web3.eth.contract(contractABI).at(contractAddress)
 function start() {
     initMyProfile()
     initMessages()
-    initPeopleFollow()
 }
 
 function initMyProfile() {
