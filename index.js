@@ -21,7 +21,7 @@ function start() {
 
 function initMyProfile() {
     // The userInfo is a public variable, which allows us to execute it as a function with the right parameters to get its value
-    contractInstance.userInfo(web3.eth.accounts[0] (err, myProfile) => {
+    contractInstance.userInfo(web3.eth.accounts[0], (err, myProfile) => {
         if(err) return alert(err)
 
         let profileContent = ''
